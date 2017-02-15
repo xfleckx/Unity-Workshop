@@ -14,5 +14,50 @@
 
 #VSLIDE
 
-### Setting up your project
+### Setting up project
 
+Unity + git
+
+#VSLIDE
+
+- Reduce merge conflicts
+
+#HSLIDE
+
+### Case A
+
+Unity project only
+
+2-3 Collaborators
+
+#VSLIDE
+
+![Logo](img/repo_case_a.jpg)
+
+#HSLIDE
+
+### Case B
+
+Unity project depending on a _work in progress_ asset package
+
+2-3 Collaborators
+
+1 maintainer of the asset package 
+
+#HSLIDE 
+
+### UnityEvents
+
+#HSLIDE
+
+### Coroutine
+
+#HSLIDE
+
+### Linq
+
+#HSLIDE
+
+
+
+###
