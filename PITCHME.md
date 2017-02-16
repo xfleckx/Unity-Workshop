@@ -47,7 +47,10 @@ Unity project depending on a _work in progress_ asset package
 #VSLIDE
 
 ```bash
-git submodule add -b master --name UnityToolbag git://github.com/nickgravelyn/UnityToolbag.git ResearchDemonstrator/Assets/UnityToolbag 
+git submodule add -b master 
+                  --name UnityToolbag 
+                  git://github.com/nickgravelyn/UnityToolbag.git 
+                  ResearchDemonstrator/Assets/UnityToolbag 
 
 ```
 
