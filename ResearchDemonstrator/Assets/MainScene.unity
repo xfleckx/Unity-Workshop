@@ -130,6 +130,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114131505058634644, guid: 7eef5711c14f92d45965de45b1aa24d8,
+        type: 2}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114131505058634644, guid: 7eef5711c14f92d45965de45b1aa24d8,
+        type: 2}
+      propertyPath: stupidity
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7eef5711c14f92d45965de45b1aa24d8, type: 2}
   m_IsPrefabParent: 0
