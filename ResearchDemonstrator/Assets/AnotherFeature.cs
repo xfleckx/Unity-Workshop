@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class AnotherFeature : MonoBehaviour {
 
-    public float health;
-    public float stupidity;
+    public float health; 
+    public float stupidity; 
+    public float power; 
 
 	// Use this for initialization
 	void Start () {

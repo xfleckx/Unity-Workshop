@@ -51,9 +51,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c93275718513ab549ae639f7c317c67f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   health: 5
   stupidity: 10
+  power: 30
 --- !u!114 &114892080304020742
 MonoBehaviour:
   m_ObjectHideFlags: 1
