@@ -44,7 +44,18 @@ Unity project depending on a _work in progress_ asset package
 
 1 maintainer of the asset package 
 
+#VSLIDE
+
+```bash
+git submodule add -b master --name UnityToolbag git://github.com/nickgravelyn/UnityToolbag.git ResearchDemonstrator/Assets/UnityToolbag 
+
+```
+
+
 #HSLIDE 
+
+
+
 
 ### UnityEvents
 

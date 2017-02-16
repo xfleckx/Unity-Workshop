@@ -1,0 +1,4 @@
+[submodule "UnityToolbag"]
+	path = ResearchDemonstrator/Assets/UnityToolbag
+	url = git://github.com/nickgravelyn/UnityToolbag.git
+	branch = master
