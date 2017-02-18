@@ -24,9 +24,7 @@ Unity + git
 
 Unity project depending on a _work in progress_ asset package
 
-#VSLIDE
-
-![Logo](img/overview.png)
+#VSLIDE?image=img/overview.png
 
 #HSLIDE
 
