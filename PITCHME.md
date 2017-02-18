@@ -22,43 +22,33 @@ Unity + git
 
 - Reduce merge conflicts
 
-#HSLIDE
-
-### Case A
-
-Unity project only
-
-2-3 Collaborators
-
-#VSLIDE
-
-![Logo](img/repo_case_a.jpg)
-
-#HSLIDE
-
-### Case B
-
 Unity project depending on a _work in progress_ asset package
 
-2-3 Collaborators
+#VSLIDE
 
-1 maintainer of the asset package 
+![Logo](img/overview.png)
+
+#HSLIDE
+
+### Using prefabs
+
+- distinct logical entities 
+- containing serialized state 
+- state => value + references
 
 #VSLIDE
 
-```bash
-git submodule add -b master 
-                  --name UnityToolbag 
-                  git://github.com/nickgravelyn/UnityToolbag.git 
-                  ResearchDemonstrator/Assets/UnityToolbag 
+### Designing a prefab
 
-```
+- use a top level script as facade
+- use public methods 
+- use events for deferred results 
 
+#HSLIDE
 
-#HSLIDE 
+### CODING
 
-
-
+#VSLIDE
 
 ### UnityEvents
 
@@ -72,6 +62,4 @@ git submodule add -b master
 
 #HSLIDE
 
-
-
-###
+### Editor scriptings
