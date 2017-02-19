@@ -123,7 +123,7 @@ Cons:
 
 ### Further recommendations
 
-- Check [Awesome-Unity](https://github.com/RyanNielson/awesome-unity) as a valuable ressource
+- Check [Awesome-Unity](https://github.com/RyanNielson/awesome-unity) as a valuable resource
 - Use [Post-Processing](https://github.com/Unity-Technologies/PostProcessing/wiki) to improve the image quality for demonstrators
 - but do not use them for VR settings!
 
