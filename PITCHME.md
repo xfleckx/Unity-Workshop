@@ -29,27 +29,17 @@ Copy -> Change -> Ready to replace
 Each feature should be developed in an dedicated scene.
 Dev-Scene in Development branch
 
-#HSLIDE
-
-### Case A
-
-Unity project only
-
-2-3 Collaborators
-
-#VSLIDE
-
-![Logo](img/repo_case_a.jpg)
-
-#HSLIDE
-
-### Case B
-
 Unity project depending on a _work in progress_ asset package
 
-2-3 Collaborators
+#VSLIDE?image=img/overview.png
 
-1 maintainer of the asset package 
+#HSLIDE
+
+### Using prefabs
+
+- distinct logical entities 
+- containing serialized state 
+- state => value + references
 
 #VSLIDE
 
@@ -63,10 +53,17 @@ git submodule add -b master
 ```
 
 
-#HSLIDE 
+### Designing a prefab
 
+- use a top level script as facade
+- use public methods 
+- use events for deferred results 
 
+#HSLIDE
 
+### CODING
+
+#VSLIDE
 
 ### UnityEvents
 
@@ -80,6 +77,4 @@ git submodule add -b master
 
 #HSLIDE
 
-
-
-###
+### Editor scriptings
