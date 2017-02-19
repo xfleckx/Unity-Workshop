@@ -29,9 +29,22 @@ git add -f Assets/<fizzBuzz>/Plugins/<plugin>.dll
 #VSLIDE
 
 - Reduce merge conflicts
-Reduce merge conflicts with prefabs
+
+Reduce merge conflicts with prefabs are easier to solve
+
+instances of modified prefabs marked red in scene hierarchy
+
 
 Copy -> Change -> Ready to replace
+
+#HSLIDE
+
+### recommendations on Merge 
+
+Close Unity before merging! (Dry merge)
+
+Resolve conflicts
+
 
 #HSLIDE
 
@@ -80,6 +93,19 @@ git submodule add -b master
 
 ### Coroutines
 
+Pros:
+
+ - Improve code clarity for state machines
+ - distribute computing time over multiple frames
+
+#VSLIDE 
+
+### Coroutine 
+
+Cons:
+
+ - increased memory footprint (vs. plain update calls)
+
 #HSLIDE
 
 ### Linq
@@ -94,3 +120,10 @@ git submodule add -b master
 
 - get rid of Debug.Log() messages
 - a window showing different states of several objects
+
+### Further recommendations
+
+- Check [Awesome-Unity](https://github.com/RyanNielson/awesome-unity) as a valuable ressource
+- Use [Post-Processing](https://github.com/Unity-Technologies/PostProcessing/wiki) to improve the image quality for demonstrators
+- but do not use them for VR settings!
+
