@@ -1,6 +1,6 @@
 ### Using Unity for scientific demonstrators and research projects
 
-#VSLIDE
+#HSLIDE
 
 ### Contents
 
@@ -12,11 +12,19 @@
     3. Linq _(20 min)_
 4. Editor scripting and advanced debugging _(20 min)_
 
-#VSLIDE
+#HSLIDE
 
 ### Setting up project
 
 Unity + git
+
+#VSLIDE
+
+- add .gitignore 
+- exceptions: plugin.dll
+```shell
+git add -f Assets/<fizzBuzz>/Plugins/<plugin>.dll
+```
 
 #VSLIDE
 
@@ -52,7 +60,7 @@ Unity project depending on a _work in progress_ asset package
 
 #HSLIDE
 
-### Coroutine
+### Coroutines
 
 #HSLIDE
 
@@ -60,4 +68,11 @@ Unity project depending on a _work in progress_ asset package
 
 #HSLIDE
 
-### Editor scriptings
+### Editor scripting
+
+#VSLIDE
+
+### Building a custom debugger
+
+- get rid of Debug.Log() messages
+- a window showing different states of several objects
