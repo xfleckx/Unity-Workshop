@@ -29,6 +29,14 @@ git add -f Assets/<fizzBuzz>/Plugins/<plugin>.dll
 #VSLIDE
 
 - Reduce merge conflicts
+Reduce merge conflicts with prefabs
+
+Copy -> Change -> Ready to replace
+
+#HSLIDE
+
+Each feature should be developed in an dedicated scene.
+Dev-Scene in Development branch
 
 Unity project depending on a _work in progress_ asset package
 
@@ -43,6 +51,16 @@ Unity project depending on a _work in progress_ asset package
 - state => value + references
 
 #VSLIDE
+
+add a usefull project as submodule...
+
+```bash
+git submodule add -b master 
+                  --name UnityToolbag 
+                  git://github.com/nickgravelyn/UnityToolbag.git 
+                  ResearchDemonstrator/Assets/UnityToolbag 
+```
+
 
 ### Designing a prefab
 
