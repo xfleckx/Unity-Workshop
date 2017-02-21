@@ -7,7 +7,9 @@ namespace IAT.ResearchDemonstrator
 
     public class BounceBehavior : MonoBehaviour {
 
-        public float forceEnergy;
+        public BounceParameter param;
+
+        public float bounceEnergy;
 
         private Rigidbody rb;
 
@@ -17,7 +19,10 @@ namespace IAT.ResearchDemonstrator
 	
         private void OnCollisionEnter(Collision collision)
         {
-            rb.AddForce(Vector3.up * forceEnergy);
+            if(param)
+                rb.AddForce(Vector3.up * param.bounceEnergy);
+            else
+                rb.AddForce(Vector3.up * bounceEnergy);
         }
     }
 
