@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 namespace IAT.ResearchDemonstrator
@@ -11,18 +10,44 @@ namespace IAT.ResearchDemonstrator
 
         public float bounceEnergy;
 
+        public Action OnBallHitsThefloor;
+
         private Rigidbody rb;
 
-	    void Start () {
+        private bool ballShouldBounce;
+
+        void Start () {
             rb = GetComponent<Rigidbody>();
 	    }
 	
         private void OnCollisionEnter(Collision collision)
         {
-            if(param)
+            if (!ballShouldBounce)
+                return;
+
+            if (OnBallHitsThefloor != null)
+                OnBallHitsThefloor();
+
+            applyForce();
+        }
+
+        private void applyForce()
+        {
+            if (param)
                 rb.AddForce(Vector3.up * param.bounceEnergy);
             else
                 rb.AddForce(Vector3.up * bounceEnergy);
+        }
+
+        public void LetTheBallBounce()
+        {
+            applyForce();
+            ballShouldBounce = true;
+        }
+
+        public void DisableTheBounceForce()
+        {
+            ballShouldBounce = false;
         }
     }
 
