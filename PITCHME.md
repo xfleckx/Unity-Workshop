@@ -20,19 +20,64 @@ Unity + git
 
 #VSLIDE
 
-- add .gitignore 
-- exceptions: plugin.dll
+- add [.gitignore](https://github.com/github/gitignore/blob/master/Unity.gitignore) 
+- what we might learn from [ignore patterns](https://github.com/github/gitignore/blob/master/Unity.gitignore#L14-L17)
+- exception: a plugin.dll
+
 ```shell
 git add -f Assets/<fizzBuzz>/Plugins/<plugin>.dll
 ```
 
+
 #VSLIDE
 
-- Reduce merge conflicts
+Pros:
 
-Reduce merge conflicts with prefabs are easier to solve
+- lean repositories (no code duplication in remotes)
+- development branch could point to a development of the submodule
 
-instances of modified prefabs marked red in scene hierarchy
+Cons: 
+
+- more git commands necessary to manage the submodule
+
+```shell
+git clone ... -recursive
+git submodule update --remote
+```
+
+- not possible with Projects maintained as whole Unity projects :(
+- example: [HoloToolkit](https://github.com/Microsoft/HoloToolkit-Unity)
+
+#VSLIDE
+
+add a useful project as submodule...
+
+```bash
+git submodule add -b master 
+                  --name UnityToolbag 
+                  git://github.com/nickgravelyn/UnityToolbag.git 
+                  ResearchDemonstrator/Assets/UnityToolbag 
+```
+
+#VSLIDE
+
+What about project settings necessary for my asset package?
+
+Use an EditorScript which sets required values...
+
+#VSLIDE
+
+### Recommendations
+
+- write a project setup script (python/bash/...) for new projects 
+- import all useful repos as submodules (manually resolving your dependency graph)
+
+
+#VSLIDE
+
+- Reduce merge conflicts with prefabs are easier to solve
+
+- _instances_ of *modified* prefabs marked red in scene hierarchy
 
 
 Copy -> Change -> Ready to replace
@@ -63,25 +108,20 @@ Unity project depending on a _work in progress_ asset package
 - containing serialized state 
 - state => value + references
 
-#VSLIDE
-
-add a usefull project as submodule...
-
-```bash
-git submodule add -b master 
-                  --name UnityToolbag 
-                  git://github.com/nickgravelyn/UnityToolbag.git 
-                  ResearchDemonstrator/Assets/UnityToolbag 
-```
-
-
 ### Designing a prefab
 
 - use a top level script as facade
 - use public methods 
-- use events for deferred results 
+- use events for deferred or non-deterministic results 
 
 #HSLIDE
+
+#VSLIDE
+
+### Dealing with runtime configurations
+
+- use JsonUtility
+- use ScriptableObjects
 
 ### CODING
 
@@ -106,6 +146,7 @@ Cons:
 
  - increased memory footprint (vs. plain update calls)
 
+
 #HSLIDE
 
 ### Linq
@@ -114,12 +155,16 @@ Cons:
 
 ### Editor scripting
 
+- Domain/Problem specific extensions
+- custom debugger for complex
 #VSLIDE
 
 ### Building a custom debugger
 
 - get rid of Debug.Log() messages
 - a window showing different states of several objects
+
+
 
 ### Further recommendations
 
