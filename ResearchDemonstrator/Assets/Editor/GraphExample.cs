@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using IAT.ResearchDemonstrator;
 
 public class GraphExample : EditorWindow {
 
@@ -13,27 +15,18 @@ public class GraphExample : EditorWindow {
         window.Show();
     }
 
-
-    Camera meshCam;
+    private Demonstrator instance;
 
     private void OnEnable()
     {
-        meshCam = new GameObject("DemoCam").AddComponent<Camera>();
-    }
+        instance = FindObjectOfType<Demonstrator>();
 
+    }
 
     private void OnGUI()
     {
-        //if(Event.current.type == EventType.Repaint)
-        //{
-        //    meshCam.cameraType = CameraType.SceneView;
-        //    meshCam.Render();
-        //}
-
-
         EditorGUILayout.BeginHorizontal(GUILayout.MinWidth(500));
-
-
+        
         EditorGUILayout.BeginVertical(GUILayout.MinWidth(500), GUILayout.MinHeight(300));
 
         var rect = new Rect(position.position.x, position.position.y, 100, 100);
@@ -47,9 +40,17 @@ public class GraphExample : EditorWindow {
 
     public void OnInspectorUpdate()
     {
-
+        SamplePositionOfBall();
         // This will only get called 10 times per second.
         Repaint();
+    }
+
+    private void SamplePositionOfBall()
+    {
+        if (instance)
+        {
+
+        }
     }
 
     private void RenderGraphsForChannels(Rect renderingArea)
@@ -62,7 +63,7 @@ public class GraphExample : EditorWindow {
         {
             if (xPix >= 0)
             {
-                float y = Mathf.Sin(xPix + Random.Range(0.2f, 0.3f));
+                float y = Mathf.Sin(xPix + UnityEngine.Random.Range(0.2f, 0.3f));
 
                 float y_01 = Mathf.InverseLerp(0, 1, y);
 
@@ -75,10 +76,5 @@ public class GraphExample : EditorWindow {
         
             
 
-    }
-
-    private void OnDisable()
-    {
-        DestroyImmediate(meshCam.gameObject);
     }
 }

@@ -108,6 +108,8 @@ Unity project depending on a _work in progress_ asset package
 - containing serialized state 
 - state => value + references
 
+#HSLIDE 
+
 ### Designing a prefab
 
 - use a top level script as facade
@@ -115,6 +117,16 @@ Unity project depending on a _work in progress_ asset package
 - use events for deferred or non-deterministic results 
 
 #HSLIDE
+
+### Coding hint
+
+- use assertions to signal errors and corrupt prefab states
+
+```csharp
+using UnityEngine.Assertions;
+Assert.IsNotNull(myExpectedReference,"Something is missing");
+```
+- don't worry - got removed on compile time during the build process!
 
 #VSLIDE
 
