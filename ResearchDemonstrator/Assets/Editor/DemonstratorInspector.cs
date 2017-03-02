@@ -23,7 +23,7 @@ namespace IAT.ResearchDemonstrator.EditorExtensions
 
                 EditorGUILayout.FloatField("Hits: ", instance.GetHitCount(), EditorStyles.boldLabel);
 
-                // force the constant update of the inspector
+                // force a constant update of the inspector
                 EditorUtility.SetDirty(target);
             }
 
