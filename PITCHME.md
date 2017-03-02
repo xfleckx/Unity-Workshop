@@ -7,15 +7,16 @@
 1. Setting up a project _(10 min)_
 2. Delegating work with (git) submodules and prefabs _(30 min)_
 3. Advanced coding tips for rapid prototyping
-    1. UnityEvents _(10 min)_
-    2. Coroutines _(20 min)_
-    3. Linq _(20 min)_
+    1. UnityEvents
+    2. Coroutines 
 4. Editor scripting and advanced debugging _(20 min)_
 
 
-#VSLIDE
+#HSLIDE
 
+### Unity Overview
 
+#VSLIDE?image=https://docs.unity3d.com/uploads/Main/monobehaviour_flowchart.svg
 
 #VSLIDE?image=img/overview.png
 
@@ -144,9 +145,32 @@ Assert.IsNotNull(myExpectedReference,"Something is missing");
 
 #VSLIDE
 
-### UnityEvents
+### Events
 
-#HSLIDE
+- not UI only!
+- event Action -> is a collection of typesafe generic function pointers
+- UnityEvent -> is a Serializable collection of function generic function pointers 
+
+#VSLIDE
+
+### Events
+
+Pros:
+
+ - decoubling through method signatures -> Callback functions
+ - reduce amount of state variables
+
+#VSLIDE 
+
+### Events
+
+Cons:
+
+ - increased memory footprint (vs. direct calls)
+ - don't forget to remove callbacks!
+
+
+#VSLIDE
 
 ### Coroutines
 
@@ -157,7 +181,7 @@ Pros:
 
 #VSLIDE 
 
-### Coroutine 
+### Coroutines
 
 Cons:
 
@@ -176,6 +200,8 @@ Cons:
 
 - get rid of Debug.Log() messages
 - a window showing different states of several objects
+
+#HSLIDE
 
 ### Further recommendations
 
