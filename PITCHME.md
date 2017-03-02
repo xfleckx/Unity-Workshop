@@ -63,7 +63,7 @@ git submodule add -b master
 
 What about project settings necessary for my asset package?
 
-Use an EditorScript which sets required values...
+Use an EditorScript which sets required values... (SettingsExample.cs)
 
 #VSLIDE
 
