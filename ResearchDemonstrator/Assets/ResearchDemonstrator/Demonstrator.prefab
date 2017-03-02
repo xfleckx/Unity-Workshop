@@ -39,6 +39,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4580714662457088}
+  - component: {fileID: 114812914740654718}
   m_Layer: 0
   m_Name: Demonstrator
   m_TagString: Untagged
@@ -70,8 +71,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1072799296511744}
-  m_LocalRotation: {x: -0.40821788, y: 0.23456968, z: -0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: -0.067294896, y: -1.0840447, z: 2.9152217}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4580714662457088}
@@ -83,8 +84,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1394876567163652}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0.58, y: 4.97, z: 10.13}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4253426170340906}
@@ -98,8 +99,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1671341826689120}
-  m_LocalRotation: {x: -0.40821788, y: 0.23456968, z: -0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: -0.067294896, y: -2.3953319, z: 4.4779525}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 0.10000002, z: 10}
   m_Children: []
   m_Father: {fileID: 4580714662457088}
@@ -219,7 +220,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2f203144692eb14d98ce62b31a3ba6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceEnergy: 100
+  param: {fileID: 11400000, guid: 2ca5c0eb5c62b7e4a8a219c74ae2bfd4, type: 2}
+  bounceEnergy: 0
+--- !u!114 &114812914740654718
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1394876567163652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909831a6e309bf64082093ecea371060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onBallReachedTargetHitCount:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: IAT.ResearchDemonstrator.BallWatchEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!135 &135332390422201492
 SphereCollider:
   m_ObjectHideFlags: 1

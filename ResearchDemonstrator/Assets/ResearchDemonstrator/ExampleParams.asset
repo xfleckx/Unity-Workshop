@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba11be529b5d85b4894db288d906b312, type: 3}
   m_Name: ExampleParams
   m_EditorClassIdentifier: 
-  bounceEnergy: 139.97
+  bounceEnergy: 100

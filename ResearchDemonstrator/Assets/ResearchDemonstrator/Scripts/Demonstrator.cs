@@ -8,10 +8,10 @@ namespace IAT.ResearchDemonstrator
 {
     public class Demonstrator : MonoBehaviour
     {
-        BounceBehavior ball;
+        private BounceBehavior ball;
 
         private int hitCount;
-
+        
         private void Awake()
         {
             checkPrefabInstanceIntegrity();
@@ -24,26 +24,51 @@ namespace IAT.ResearchDemonstrator
                 hitCount++;
             };
         }
-
-
+        
         private void checkPrefabInstanceIntegrity()
         {
             ball = GetComponentInChildren<BounceBehavior>();
             Assert.IsNotNull(ball, "Prefab corrupt - missing BounceBehavior as children of the Demonstrator instance");
 
-            var floor = transform.FindChild("floor");
+            var floor = transform.FindChild("Floor");
             Assert.IsNotNull(floor, "Prefab corrupt - missing a 'Floor' as children of the Demonstrator");
         }
 
-        public void BounceTheBallNTimes(int timesToBounce)
+        private IEnumerator WatchBall(int targetBounceCount)
         {
-            ball.LetTheBallBounce();
+            hitCount = 0;
+
+            yield return new WaitWhile(() => hitCount != targetBounceCount);
+
+            if(onBallReachedTargetHitCount.GetPersistentEventCount() > 0)
+            {
+                onBallReachedTargetHitCount.Invoke(hitCount, ball);
+            }
+
         }
 
+        #region public interface for the prefab user
+
+        // props:
+        public BallWatchEvent onBallReachedTargetHitCount; 
+
+        // methods:
+
+        public void BounceTheBallNTimes(int timesToBounce = int.MaxValue)
+        {
+            IEnumerator watchRoutine = WatchBall(timesToBounce);
+
+            StartCoroutine(watchRoutine);
+
+            ball.LetTheBallBounce();
+        }
+        
         public int GetHitCount()
         {
             return hitCount;
         }
+
+        #endregion
     }
 
 }
