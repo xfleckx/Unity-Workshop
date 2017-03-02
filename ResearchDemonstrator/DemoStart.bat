@@ -1,0 +1,1 @@
+Build\DemoBuild.exe -m "A message I got on startup"
