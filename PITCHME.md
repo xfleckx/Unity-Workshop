@@ -12,6 +12,13 @@
     3. Linq _(20 min)_
 4. Editor scripting and advanced debugging _(20 min)_
 
+
+#VSLIDE
+
+
+
+#VSLIDE?image=img/overview.png
+
 #HSLIDE
 
 ### Setting up project
@@ -22,31 +29,17 @@ Unity + git
 
 - add [.gitignore](https://github.com/github/gitignore/blob/master/Unity.gitignore) 
 - what we might learn from [ignore patterns](https://github.com/github/gitignore/blob/master/Unity.gitignore#L14-L17)
-- exception: a plugin.dll
+- exceptions: a plugin.dll
 
-```shell
+```bash
 git add -f Assets/<fizzBuzz>/Plugins/<plugin>.dll
 ```
 
-
 #VSLIDE
 
-Pros:
-
-- lean repositories (no code duplication in remotes)
-- development branch could point to a development of the submodule
-
-Cons: 
-
-- more git commands necessary to manage the submodule
-
-```shell
-git clone ... -recursive
-git submodule update --remote
-```
-
-- not possible with Projects maintained as whole Unity projects :(
-- example: [HoloToolkit](https://github.com/Microsoft/HoloToolkit-Unity)
+Don't forget the project settings 
+- SerializationMode = Force Text
+- Visible Meta Files
 
 #VSLIDE
 
@@ -61,46 +54,54 @@ git submodule add -b master
 
 #VSLIDE
 
+Pros:
+
+- lean repositories (no code duplication in remotes)
+- submodule could point to a stable state of a _work in progress_ asset package
+- development branch could point to a development of the submodule
+
+#VSLIDE
+
+Cons: 
+
+- more git commands necessary to manage the submodule
+
+```bash
+git clone ... -recursive
+git submodule update --remote
+```
+
+- not possible with Projects maintained as whole Unity projects :(
+- bad example: [HoloToolkit](https://github.com/Microsoft/HoloToolkit-Unity)
+
+#VSLIDE
+
 What about project settings necessary for my asset package?
 
 Use an EditorScript which sets required values... (SettingsExample.cs)
 
 #VSLIDE
 
-### Recommendations
+### Idea - a project setup script
 
-- write a project setup script (python/bash/...) for new projects 
-- import all useful repos as submodules (manually resolving your dependency graph)
+- write a [project setup script](https://github.com/xfleckx/BeMoBI_Tools/blob/master/utils/ProjectSetup/CreateNewParadigm/CreateNewParadigm/CreateNewExperiment.py) (python/bash/...) for new projects 
+- import all useful repos as submodules (automatically resolve your dependency graph)
 
 
-#VSLIDE
+#HSLIDE
+
+### Branching and delegating work
+
+Example: Dev-Scene in Development branch
+
+- corrupt prefab instances in a scene got marked red
 
 - Reduce merge conflicts with prefabs are easier to solve
 
 - _instances_ of *modified* prefabs marked red in scene hierarchy
 
-
 Copy -> Change -> Ready to replace
 
-#HSLIDE
-
-### recommendations on Merge 
-
-Close Unity before merging! (Dry merge)
-
-Resolve conflicts
-
-
-#HSLIDE
-
-Each feature should be developed in an dedicated scene.
-Dev-Scene in Development branch
-
-Unity project depending on a _work in progress_ asset package
-
-#VSLIDE?image=img/overview.png
-
-#HSLIDE
 
 ### Using prefabs
 
@@ -108,7 +109,6 @@ Unity project depending on a _work in progress_ asset package
 - containing serialized state 
 - state => value + references
 
-#HSLIDE 
 
 ### Designing a prefab
 
@@ -116,7 +116,9 @@ Unity project depending on a _work in progress_ asset package
 - use public methods 
 - use events for deferred or non-deterministic results 
 
-#HSLIDE
+-> Example
+
+#VSLIDE
 
 ### Coding hint
 
@@ -132,8 +134,11 @@ Assert.IsNotNull(myExpectedReference,"Something is missing");
 
 ### Dealing with runtime configurations
 
+- CommandLineArguments
 - use JsonUtility
 - use ScriptableObjects
+
+#HSLIDE
 
 ### CODING
 
@@ -158,17 +163,13 @@ Cons:
 
  - increased memory footprint (vs. plain update calls)
 
-
-#HSLIDE
-
-### Linq
-
 #HSLIDE
 
 ### Editor scripting
 
 - Domain/Problem specific extensions
 - custom debugger for complex
+
 #VSLIDE
 
 ### Building a custom debugger
@@ -176,11 +177,8 @@ Cons:
 - get rid of Debug.Log() messages
 - a window showing different states of several objects
 
-
-
 ### Further recommendations
 
 - Check [Awesome-Unity](https://github.com/RyanNielson/awesome-unity) as a valuable resource
-- Use [Post-Processing](https://github.com/Unity-Technologies/PostProcessing/wiki) to improve the image quality for demonstrators
-- but do not use them for VR settings!
+- Use [Post-Processing](https://github.com/Unity-Technologies/PostProcessing/wiki) to improve the image quality for demonstrators but do not use them for VR settings!
 
