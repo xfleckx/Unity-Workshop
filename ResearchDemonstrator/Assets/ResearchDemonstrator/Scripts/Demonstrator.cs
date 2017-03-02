@@ -68,6 +68,11 @@ namespace IAT.ResearchDemonstrator
             return hitCount;
         }
 
+        public BounceBehavior GetBall()
+        {
+            return ball;
+        }
+
         #endregion
     }
 

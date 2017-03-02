@@ -10,37 +10,76 @@ public class GraphExample : EditorWindow {
     [MenuItem("Window/Demo")]
     private static void showDemoWindow()
     {
-        var window = CreateInstance<GraphExample>();
+        var window = EditorWindow.GetWindow<GraphExample>();
         
         window.Show();
     }
 
     private Demonstrator instance;
+    private Measurement measurement;
 
+    private BounceParameter parameter;
+    private float targetHeight = 5;
     private void OnEnable()
     {
         instance = FindObjectOfType<Demonstrator>();
 
+        measurement = FindObjectOfType<Measurement>();
+
+        if (EditorApplication.isPlaying)
+            parameter = instance.GetBall().param;
+
+
+
+    }
+
+    private Queue<float> samples = new Queue<float>();
+
+    private void Update()
+    {
+        if (EditorApplication.isPlaying) { 
+            SamplePositionOfBall();
+            Repaint();
+        }
     }
 
     private void OnGUI()
     {
-        EditorGUILayout.BeginHorizontal(GUILayout.MinWidth(500));
+        EditorGUILayout.BeginHorizontal(GUILayout.Height(300));
         
-        EditorGUILayout.BeginVertical(GUILayout.MinWidth(500), GUILayout.MinHeight(300));
+        var rectB = EditorGUILayout.BeginVertical(GUILayout.MinWidth(200), GUILayout.MinHeight(300));
 
-        var rect = new Rect(position.position.x, position.position.y, 100, 100);
-
-        RenderGraphsForChannels(rect);
+        if (EditorApplication.isPlaying && GUILayout.Button("Bounce the ball"))
+        {
+            instance.BounceTheBallNTimes();
+        }
 
         EditorGUILayout.EndVertical();
+
+
+        if (parameter != null)
+            parameter.bounceEnergy = GUILayout.VerticalSlider(parameter.bounceEnergy, 500, 0);
+
+        var rectA = EditorGUILayout.BeginVertical(GUILayout.MinWidth(200), GUILayout.MinHeight(300));
+
+        EditorGUILayout.LabelField("Ball Height:");
+
+        if(Event.current.type == EventType.Repaint)
+        {
+
+            EditorGUI.DrawRect(rectA, Color.black);
+            RenderGraphsForChannels(rectA);
+        }
+        
+
+        EditorGUILayout.EndVertical();
+        
 
         EditorGUILayout.EndHorizontal();
     }
 
     public void OnInspectorUpdate()
     {
-        SamplePositionOfBall();
         // This will only get called 10 times per second.
         Repaint();
     }
@@ -49,7 +88,17 @@ public class GraphExample : EditorWindow {
     {
         if (instance)
         {
+            var currentBallHeight = instance.GetBall().transform.position.y;
 
+            if(samples.Count >= 200)
+            {
+                samples.Dequeue();
+                samples.Enqueue(currentBallHeight);
+
+            }else
+            {
+                samples.Enqueue(currentBallHeight);
+            }
         }
     }
 
@@ -58,23 +107,23 @@ public class GraphExample : EditorWindow {
         int W = (int)renderingArea.width;
         int H = (int)renderingArea.height;
         
-        int xPix = (int)renderingArea.x + (W - 1) - H;
-        while(xPix < W)
+        int xPix = (int)renderingArea.x;
+        var rightBorder = xPix + (W - 1);
+
+        foreach (var sample in samples)
         {
-            if (xPix >= 0)
-            {
-                float y = Mathf.Sin(xPix + UnityEngine.Random.Range(0.2f, 0.3f));
 
-                float y_01 = Mathf.InverseLerp(0, 1, y);
+            float y_01 = Mathf.InverseLerp(0, measurement.TargetHeight, sample);
+            int yPix = (int)renderingArea.y + (int)(y_01 * H);
 
-                int yPix = (int)(y_01 * H);
-                Handles.DrawLine(new Vector3(xPix, yPix, 0), new Vector3(xPix, 1 - yPix , 0));
+            var lineStart = new Vector3(xPix, H, 0);
+            var lineEnd = new Vector3(xPix, yPix, 0);
 
-            }
+            Handles.DrawLine(lineStart, lineEnd);
+
             xPix++;
         }
-        
-            
+
 
     }
 }
