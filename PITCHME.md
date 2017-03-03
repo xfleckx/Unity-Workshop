@@ -1,15 +1,19 @@
+#HSLIDE?image=https://unity3d.com/files/images/ogimg.jpg
+
+#HSLIDE
+
 ### Using Unity for scientific demonstrators and research projects
 
 #HSLIDE
 
 ### Contents
 
-1. Setting up a project _(10 min)_
-2. Delegating work with (git) submodules and prefabs _(30 min)_
+1. Setting up a project, including questions and discussion 
+2. Delegating work with (git) submodules and prefabs
 3. Advanced coding tips for rapid prototyping
     1. UnityEvents
     2. Coroutines 
-4. Editor scripting and advanced debugging _(20 min)_
+4. Editor scripting and advanced debugging
 
 
 #HSLIDE
@@ -19,6 +23,13 @@
 #VSLIDE?image=https://docs.unity3d.com/uploads/Main/monobehaviour_flowchart.svg
 
 #VSLIDE?image=img/overview.png
+
+#HSLIDE
+
+### Some thoughts
+
+- using UnityEngine; is a dead end!
+- Unity is fast for rapid app prototyping (GUI [even depending on eye candy...])
 
 #HSLIDE
 
@@ -88,14 +99,13 @@ Use an EditorScript which sets required values... (SettingsExample.cs)
 - write a [project setup script](https://github.com/xfleckx/BeMoBI_Tools/blob/master/utils/ProjectSetup/CreateNewParadigm/CreateNewParadigm/CreateNewExperiment.py) (python/bash/...) for new projects 
 - import all useful repos as submodules (automatically resolve your dependency graph)
 
-
 #HSLIDE
 
 ### Branching and delegating work
 
 Example: Dev-Scene in Development branch
 
-- corrupt prefab instances in a scene got marked red
+- corrupt prefab instances in a scene got marked red, these are "disconnected"
 
 - Reduce merge conflicts with prefabs are easier to solve
 
@@ -103,13 +113,13 @@ Example: Dev-Scene in Development branch
 
 Copy -> Change -> Ready to replace
 
+#VSLIDE
 
 ### Using prefabs
 
 - distinct logical entities 
 - containing serialized state 
 - state => value + references
-
 
 ### Designing a prefab
 
@@ -137,7 +147,9 @@ Assert.IsNotNull(myExpectedReference,"Something is missing");
 
 - CommandLineArguments
 - use JsonUtility
+    -> fast and easy text serialisation
 - use ScriptableObjects
+    -> save state and behaviour as asset
 
 #HSLIDE
 
@@ -157,7 +169,7 @@ Assert.IsNotNull(myExpectedReference,"Something is missing");
 
 Pros:
 
- - decoubling through method signatures -> Callback functions
+ - decouble through method signatures -> Callback functions
  - reduce amount of state variables
 
 #VSLIDE 
@@ -169,6 +181,11 @@ Cons:
  - increased memory footprint (vs. direct calls)
  - don't forget to remove callbacks!
 
+#VSLIDE
+### Coroutines
+
+- statefull methods
+- recieving calls on different situations (EndOfFrame, Timer) 
 
 #VSLIDE
 
@@ -192,13 +209,14 @@ Cons:
 ### Editor scripting
 
 - Domain/Problem specific extensions
-- custom debugger for complex
+- handy tools eg. creating concept graphics for publications using handles and Gizmos
+- custom debugger for data graphs
 
 #VSLIDE
 
 ### Building a custom debugger
 
-- get rid of Debug.Log() messages
+- get rid of Debug.Log() messages for continuous values
 - a window showing different states of several objects
 
 #HSLIDE
