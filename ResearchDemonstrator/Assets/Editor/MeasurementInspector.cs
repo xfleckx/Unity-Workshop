@@ -7,8 +7,28 @@ using UnityEngine;
 
 namespace IAT.ResearchDemonstrator.EditorExtensions
 {
+    [CustomEditor(typeof(Measurement))]
     public class MeasurementInspector : Editor
     {
+
+        public override void OnInspectorGUI()
+        {
+            var instance = target as Measurement;
+
+            base.OnInspectorGUI();
+
+            if (EditorApplication.isPlaying && GUILayout.Button("Measure"))
+            {
+                instance.BeginMeasurement();
+            }
+
+            if (EditorApplication.isPlaying && GUILayout.Button("Finalize"))
+            {
+                instance.FinalizeMeasurement();
+            }
+        }
+
+        #region GIZMO DEMO
 
         [DrawGizmo(GizmoType.Active | GizmoType.NotInSelectionHierarchy | GizmoType.InSelectionHierarchy)]
         public static void OnDrawGizmos(Measurement instance, GizmoType type)
@@ -24,5 +44,7 @@ namespace IAT.ResearchDemonstrator.EditorExtensions
 
             Handles.DrawWireDisc(targetHeightPosition, floor.transform.up, 2);
         }
+
+        #endregion
     }
 }

@@ -319,6 +319,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114812914740654718, guid: 908a3d4c7f7ba8e488c99d1f220d5948,
+        type: 2}
+      propertyPath: onBallReachedTargetHitCount.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4580714662457088, guid: 908a3d4c7f7ba8e488c99d1f220d5948, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -357,6 +362,16 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 2ca5c0eb5c62b7e4a8a219c74ae2bfd4,
         type: 2}
+    - target: {fileID: 114812914740654718, guid: 908a3d4c7f7ba8e488c99d1f220d5948,
+        type: 2}
+      propertyPath: onBallReachedTargetHitCount.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114812914740654718, guid: 908a3d4c7f7ba8e488c99d1f220d5948,
+        type: 2}
+      propertyPath: onBallReachedTargetHitCount.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 908a3d4c7f7ba8e488c99d1f220d5948, type: 2}
   m_IsPrefabParent: 0
@@ -452,6 +467,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetHeight: 3
   demo: {fileID: 0}
+  OnFinalized:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 344072378}
+        m_MethodName: SaveResultFile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: IAT.ResearchDemonstrator.MeasurementFinished, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!4 &2035299831
 Transform:
   m_ObjectHideFlags: 0
