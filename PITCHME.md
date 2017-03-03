@@ -28,8 +28,10 @@
 
 ### Some thoughts
 
-- using UnityEngine; is a dead end!
-- Unity is fast for rapid app prototyping (GUI [even depending on eye candy...])
+- C# is a bless
+- but `using UnityEngine;` is a dead end!
+- using IronPython is experimental :( but [sexy](https://github.com/cesardeazevedo/Unity3D-Python-Editor)
+- however, Unity is fast for rapid app prototyping (GUI [even depending on eye candy...])
 
 #HSLIDE
 
