@@ -8,6 +8,7 @@
 
 ### Contents
 
+0. Basics
 1. Setting up a project, including questions and discussion 
 2. Delegating work with (git) submodules and prefabs
 3. Advanced coding tips for rapid prototyping
@@ -163,7 +164,8 @@ Assert.IsNotNull(myExpectedReference,"Something is missing");
 
 - not UI only!
 - event Action -> is a collection of typesafe generic function pointers
-- UnityEvent -> is a Serializable collection of function generic function pointers 
+- UnityEvent -> is a Serializable collection of function generic function pointers
+- What about [garbage](http://jacksondunstan.com/articles/3335)? (Memory allocation)
 
 #VSLIDE
 
